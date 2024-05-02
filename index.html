@@ -15,13 +15,15 @@
       <div class="contain">
         <nav>
           <img src="Images/logo.png" class="logo" />
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Service</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Contact</a></li>
+          <ul id="sidemenu">
+            <li><a href="#header">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#service">Service</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
           </ul>
+          <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
           <p>[TITLE]</p>
@@ -33,9 +35,7 @@
     <div id="about">
       <div class="container">
         <div class="row">
-          <div class="about-col-1">
-            <img src="images/user.png" />
-          </div>
+          <div class="about-col-1"></div>
           <div class="about-col-2">
             <h1 class="sub-title">About Me</h1>
             <p>
@@ -101,32 +101,131 @@
         <div class="service-list">
           <div>
             <i class="fa-solid fa-code"></i>
-            <h3>[SERVICES TITLE]</h3>
+            <h2>[SERVICES TITLE]</h2>
             <p>
               [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.]
             </p>
-            <a href="#">learn more</a>
+            <a href="#">Learn more</a>
           </div>
           <div>
             <i class="fa-solid fa-crop"></i>
-            <h3>[SERVICES TITLE]</h3>
+            <h2>[SERVICES TITLE]</h2>
             <p>
               [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.]
             </p>
-            <a href="#">learn more</a>
+            <a href="#">Learn more</a>
           </div>
           <div>
             <i class="fa-brands fa-app-store"></i>
-            <h3>[SERVICES TITLE]</h3>
+            <h2>[SERVICES TITLE]</h2>
             <p>
               [Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.]
             </p>
-            <a href="#">learn more</a>
+            <a href="#">Learn more</a>
           </div>
         </div>
+      </div>
+    </div>
+    <!-----------------Portfolio------------------->
+    <div id="portfolio">
+      <div class="container">
+        <h3 class="sub-title">My Work</h3>
+        <div class="work-list">
+          <div class="work">
+            <img src="images/work-1.png" />
+            <div class="layer">
+              <h3>[PROJECT APP]</h3>
+              <p>[WHAT DOES IT DO DESC]</p>
+              <a href="#"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </div>
+          <div class="work">
+            <img src="images/work-2.png" />
+            <div class="layer">
+              <h3>[PROJECT APP]</h3>
+              <p>[WHAT DOES IT DO DESC]</p>
+              <a href="#"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </div>
+          <div class="work">
+            <img src="images/work-3.png" />
+            <div class="layer">
+              <h3>[PROJECT APP]</h3>
+              <p>[WHAT DOES IT DO DESC]</p>
+              <a href="#"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+      </div>
+    </div>
+    <!-----------------Contact------------------->
+    <div id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="contact-left">
+            <h1 class="sub-title">Contact Me</h1>
+            <p>contact@example.com</p>
+            <p>[PHONE NUMBER]</p>
+            <div class="social-icons">
+              <a
+                href="https://www.linkedin.com/in/ryan-n-4a2482290/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a
+                href="https://github.com/asiansalso"
+                title="Github"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a
+                href="https://drive.google.com/file/d/1klQM2nhQgYMocxfidWwpEOHhVqmRCwW3/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fa-regular fa-clipboard"></i
+              ></a>
+              <a href="mailto:ryan.nguyen2904@gmail.com"
+                ><i class="fa-solid fa-envelope"></i
+              ></a>
+            </div>
+            <a href="Images/Resume.pdf" download class="btn btn2"
+              >Download CV</a
+            >
+          </div>
+          <div class="contact-right">
+            <form name="submit-to-google-sheet">
+              <input type="text" name="Name" placeholder="Your Name" required />
+              <input
+                type="email"
+                name="Email"
+                placeholder="Your Email"
+                required
+              />
+              <textarea
+                name="Message"
+                rows="6"
+                placeholder="Your Message"
+              ></textarea>
+              <button type="submit" class="btn btn2">Submit</button>
+            </form>
+            <span id="msg"></span>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2024 Ryan Nguyen. All Rights Reserved.</p>
       </div>
     </div>
 
@@ -143,6 +242,18 @@
         }
         event.currentTarget.classList.add("active-link");
         document.getElementById(tabname).classList.add("active-tab");
+      }
+    </script>
+
+    <!-----------------Side Menu Button Script------------------->
+
+    <script>
+      var sidemenu = document.getElementById("sidemenu");
+      function openmenu() {
+        sidemenu.style.right = "0";
+      }
+      function closemenu() {
+        sidemenu.style.right = "-200px";
       }
     </script>
   </body>
