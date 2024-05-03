@@ -14,7 +14,7 @@
     <div id="header">
       <div class="contain">
         <nav>
-          <img src="Images/logo.png" class="logo" />
+          <img src="TOP RIGHT CORNER LOGO" class="logo" />
           <ul id="sidemenu">
             <li><a href="#header">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -27,7 +27,7 @@
         </nav>
         <div class="header-text">
           <p>[TITLE]</p>
-          <h1>Hi, I'm <span>Ryan</span><br />from California</h1>
+          <h1>Hi, I'm <span>[NAME]</span><br />from [STATE/PLACE]</h1>
         </div>
       </div>
     </div>
@@ -177,28 +177,20 @@
             <p>contact@example.com</p>
             <p>[PHONE NUMBER]</p>
             <div class="social-icons">
-              <a
-                href="https://www.linkedin.com/in/ryan-n-4a2482290/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <a href="[LINKEDIN]" target="_blank" rel="noopener noreferrer"
                 ><i class="fa-brands fa-linkedin"></i
               ></a>
               <a
-                href="https://github.com/asiansalso"
+                href="[GITHUB]"
                 title="Github"
                 target="_blank"
                 rel="noopener noreferrer"
                 ><i class="fa-brands fa-github"></i
               ></a>
-              <a
-                href="https://drive.google.com/file/d/1klQM2nhQgYMocxfidWwpEOHhVqmRCwW3/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
+              <a href="[RESUME]" target="_blank" rel="noopener noreferrer"
                 ><i class="fa-regular fa-clipboard"></i
               ></a>
-              <a href="mailto:ryan.nguyen2904@gmail.com"
-                ><i class="fa-solid fa-envelope"></i
-              ></a>
+              <a href="mailto:[EMAIL]"><i class="fa-solid fa-envelope"></i></a>
             </div>
             <a href="Images/Resume.pdf" download class="btn btn2"
               >Download CV</a
@@ -225,7 +217,7 @@
         </div>
       </div>
       <div class="copyright">
-        <p>© 2024 Ryan Nguyen. All Rights Reserved.</p>
+        <p>© 2024 [NAME]. All Rights Reserved.</p>
       </div>
     </div>
 
@@ -255,6 +247,27 @@
       function closemenu() {
         sidemenu.style.right = "-200px";
       }
+    </script>
+
+    <!-----------------Web Form to Google Sheets------------------->
+
+    <script>
+      const scriptURL = "[GOOGLE SHEETS API]";
+      const form = document.forms["submit-to-google-sheet"];
+      const msg = document.getElementById("msg");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            msg.innerHTML = "Message sent successfully!";
+            setTimeout(function () {
+              msg.innerHTML = "";
+            }, 5000);
+            form.reset();
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
     </script>
   </body>
 </html>
